@@ -1,1 +1,36 @@
-<header>My Shopify Header</header>  
+<header>
+  <section>
+    <nav>
+      <a href="{{ routes.root_url }}">
+        <img src="{{ 'Logo.png' | asset_url }}" alt="Logo" class="logo">
+      </a>
+
+      <div class="nav-center">
+        <a href="{{ routes.all_products_url }}">SHOP</a>
+        <a href="#">COLLECTIONS</a>
+        <a href="{{ pages['about'].url }}">ABOUT</a>
+      </div>
+
+      <div class="nav-icons">
+        <img src="{{ 'blacksearch.png' | asset_url }}" alt="Search">
+        <img src="{{ 'blackuser.png' | asset_url }}" alt="User">
+        <img src="{{ 'blackheart.png' | asset_url }}" alt="Wishlist">
+        <img src="{{ 'blackbag.png' | asset_url }}" alt="Cart">
+      </div>
+    </nav>
+
+    <div class="hero-wrapper">
+      <div class="hero" id="hero">
+        <div class="img-container" id="imgContainer">
+          <img src="{{ 'img1.jpg' | asset_url }}" alt="Hero Image">
+        </div>
+        <div class="hero-text" id="heroText">
+          <div class="text-left">Crafted</div>
+          <div class="text-right">in Amsterdam</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+  </section>
+</header>

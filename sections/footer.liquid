@@ -1,1 +1,37 @@
-<footer>My Shopify Footer</footer>  
+<section>
+  <footer class="footer">
+    <div class="footer-column">
+      <h4>CONTACT US</h4>
+      <div class="social-icons">
+        <img src="{{ 'Social Icons.png' | asset_url }}" alt="Instagram" />
+        <img src="{{ 'Vector.png' | asset_url }}" alt="Facebook" />
+        <img
+          class="group"
+          src="{{ 'Group.png' | asset_url }}"
+          alt="Twitter" />
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>SUPPORT</h4>
+      <ul>
+        <li><a href="/pages/shipping-delivery">SHIPPING & DELIVERY</a></li>
+        <li><a href="/pages/returns-exchange">RETURNS & EXCHANGE</a></li>
+        <li><a href="/pages/ring-size-guide">RING SIZE GUIDE</a></li>
+        <li><a href="/pages/jewellery-care">JEWELLERY CARE</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>PRIVACY POLICY</h4>
+      <ul>
+        <li><a href="/pages/terms-conditions">TERMS & CONDITIONS</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>LAILA EL MEHELMY, {{ 'now' | date: "%Y" }}</h4>
+      <p>ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+</section>
