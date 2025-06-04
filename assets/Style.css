@@ -1,19 +1,23 @@
 @font-face {
   font-family: "GT Cinetype Trial";
-  src: url("./Fonts/Web/GT-Cinetype/GT-Cinetype-Regular.woff2") format("woff2");
+  src: url("{{ 'GT-Cinetype-Regular.woff2' | asset_url }}") format("woff2");
 }
+
 @font-face {
   font-family: "NewEdge666";
-  src: url("./Fonts/QuackeyblurRegularDemo-drJ26.otf") format("opentype");
+  src: url("{{ 'QuackeyblurRegularDemo-drJ26.otf' | asset_url }}") format("opentype");
 }
+
 @font-face {
   font-family: "CenturySchoolbook";
-  src: url("./Fonts/SCHLBKB.TTF") format("opentype");
+  src: url("{{ 'SCHLBKB.TTF' | asset_url }}") format("opentype");
 }
+
 @font-face {
   font-family: "FiraMono";
-  src: url("./Fonts/FiraMono-Regular.ttf") format("opentype");
+  src: url("{{ 'FiraMono-Regular.ttf' | asset_url }}") format("opentype");
 }
+
 
 body {
   margin: 0;
