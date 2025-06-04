@@ -1,3 +1,9 @@
-{% section 'header' %}
-{{ content_for_layout }}
-{% section 'footer' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    {{ content_for_header }}
+  </head>
+  <body>
+    {{ content_for_layout }}
+  </body>
+</html>
