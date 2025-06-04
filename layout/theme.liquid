@@ -1,9 +1,19 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <title>{{ page_title }}</title>
     {{ content_for_header }}
+
+    <!-- Stylesheet -->
+    <link
+      href="{{ 'Style.css' | asset_url }}"
+      rel="stylesheet"
+      type="text/css" />
   </head>
+
   <body>
     {{ content_for_layout }}
   </body>
+  <script src="{{ 'Script.js' | asset_url }}" defer></script>
 </html>
