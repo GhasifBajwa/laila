@@ -15,8 +15,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const maxScale = 1.7;
   let zoomComplete = false;
 
-  const blackIcons = window.themeIcons?.black || [];
-  const whiteIcons = window.themeIcons?.white || [];
+  const blackIcons = [
+    window.themeIcons.black.search,
+    window.themeIcons.black.user,
+    window.themeIcons.black.heart,
+    window.themeIcons.black.bag,
+  ];
+
+  const whiteIcons = [
+    window.themeIcons.white.search,
+    window.themeIcons.white.user,
+    window.themeIcons.white.heart,
+    window.themeIcons.white.bag,
+  ];
 
   function applyZoom() {
     let scale = minScale + (maxScale - minScale) * (cumulativeDelta / maxDelta);
