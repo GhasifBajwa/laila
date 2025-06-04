@@ -15,19 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const maxScale = 1.7;
   let zoomComplete = false;
 
-  const blackIcons = [
-    "{{ 'blacksearch.png' | asset_url }}",
-    "{{ 'blackuser.png' | asset_url }}",
-    "{{ 'blackheart.png' | asset_url }}",
-    "{{ 'blackbag.png' | asset_url }}",
-  ];
-
-  const whiteIcons = [
-    "{{ 'whitesearch.png' | asset_url }}",
-    "{{ 'whiteuser.png' | asset_url }}",
-    "{{ 'whiteheart.png' | asset_url }}",
-    "{{ 'whitebag.png' | asset_url }}",
-  ];
+  const blackIcons = window.themeIcons?.black || [];
+  const whiteIcons = window.themeIcons?.white || [];
 
   function applyZoom() {
     let scale = minScale + (maxScale - minScale) * (cumulativeDelta / maxDelta);

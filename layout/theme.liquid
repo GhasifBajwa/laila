@@ -10,6 +10,22 @@
       href="{{ 'Style.css' | asset_url }}"
       rel="stylesheet"
       type="text/css" />
+    <script>
+        window.themeIcons = {
+          black: {
+      search: "{{ 'blacksearch.png' | asset_url }}",
+      user: "{{ 'blackuser.png' | asset_url }}",
+      heart: "{{ 'blackheart.png' | asset_url }}",
+      bag: "{{ 'blackbag.png' | asset_url }}"
+          },
+          white: {
+      search: "{{ 'whitesearch.png' | asset_url }}",
+      user: "{{ 'whiteuser.png' | asset_url }}",
+      heart: "{{ 'whiteheart.png' | asset_url }}",
+      bag: "{{ 'whitebag.png' | asset_url }}"
+          }
+        };
+    </script>
   </head>
 
   <body>
