@@ -13,6 +13,9 @@
   </head>
 
   <body>
+    {% section 'header' %}
+    {{ content_for_layout }}
+    {% section 'footer' %}
     {{ content_for_layout }}
   </body>
   <script src="{{ 'Script.js' | asset_url }}" defer></script>
