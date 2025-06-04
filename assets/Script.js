@@ -15,20 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const maxScale = 1.7;
   let zoomComplete = false;
 
-  const blackIcons = [
-    window.themeIcons.black.search,
-    window.themeIcons.black.user,
-    window.themeIcons.black.heart,
-    window.themeIcons.black.bag,
-  ];
-
-  const whiteIcons = [
-    window.themeIcons.white.search,
-    window.themeIcons.white.user,
-    window.themeIcons.white.heart,
-    window.themeIcons.white.bag,
-  ];
-
   function applyZoom() {
     let scale = minScale + (maxScale - minScale) * (cumulativeDelta / maxDelta);
     scale = Math.min(Math.max(scale, minScale), maxScale);
@@ -59,6 +45,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
+
+  const blackIcons = [
+    window.themeIcons.black.search,
+    window.themeIcons.black.user,
+    window.themeIcons.black.heart,
+    window.themeIcons.black.bag,
+  ];
+
+  const whiteIcons = [
+    window.themeIcons.white.search,
+    window.themeIcons.white.user,
+    window.themeIcons.white.heart,
+    window.themeIcons.white.bag,
+  ];
 
   function updateNavColors() {
     const heroRect = imgContainer.getBoundingClientRect();
