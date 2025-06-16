@@ -1,0 +1,111 @@
+{% schema %}
+  {
+    "name": "Jewelry Collection Gallery",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Jewelry Collection"
+      }
+    ]
+  }
+{% endschema %}
+
+<section>
+  <nav>
+    <a href="{{ routes.root_url }}">
+      <img
+        src="{{ 'Logo.png' | asset_url }}"
+        alt="Logo"
+        class="logo" />
+    </a>
+    <div class="nav-center">
+      <a href="{{ routes.collections_url }}">SHOP</a>
+      <a href="{{ routes.collections_url }}">COLLECTIONS</a>
+      <a href="/pages/about">ABOUT</a>
+    </div>
+    <div class="nav-icons">
+      <img src="{{ 'blacksearch.png' | asset_url }}" alt="Search" />
+      <img src="{{ 'blackuser.png' | asset_url }}" alt="User" />
+      <img src="{{ 'blackheart.png' | asset_url }}" alt="Favorites" />
+      <img src="{{ 'blackbag.png' | asset_url }}" alt="Cart" />
+    </div>
+  </nav>
+</section>
+
+<section>
+  <div class="Filter-nav">
+    <ul class="Filter-nav-links">
+      <li>
+        <a href="/collections/all">ALL</a>
+      </li>
+      <li>
+        <a href="/collections/rings">RINGS</a>
+      </li>
+      <li>
+        <a href="/collections/earrings">EARRINGS</a>
+      </li>
+      <li>
+        <a href="/collections/necklaces">NECKLACES</a>
+      </li>
+      <li>
+        <a href="/collections/bracelets">BRACELETS</a>
+      </li>
+    </ul>
+    <div class="filter">
+      <img src="{{ 'Filter.png' | asset_url }}" alt="Filter" />
+      <span>FILTER</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <main class="gallery">
+    {% for product in collections.all.products %}
+      <div class="product">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" />
+          <p class="name">{{ product.title | upcase }} -
+            <span class="price">{{ product.price | money }}</span>
+          </p>
+        </a>
+      </div>
+    {% endfor %}
+  </main>
+</section>
+
+<section>
+  <footer class="footer">
+    <div class="footer-column">
+      <h4>CONTACT US</h4>
+      <div class="social-icons">
+        <img src="{{ 'Social Icons.png' | asset_url }}" alt="" />
+        <img src="{{ 'Vector.png' | asset_url }}" alt="" />
+        <img
+          class="group"
+          src="{{ 'Group.png' | asset_url }}"
+          alt="" />
+      </div>
+    </div>
+    <div class="footer-column">
+      <h4>SUPPORT</h4>
+      <ul>
+        <li><a href="/pages/shipping">SHIPPING & DELIVERY</a></li>
+        <li><a href="/pages/returns">RETURNS & EXCHANGE</a></li>
+        <li><a href="/pages/ring-size-guide">RING SIZE GUIDE</a></li>
+        <li><a href="/pages/jewelry-care">JEWELLERY CARE</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>
+        <a href="/policies/privacy-policy">PRIVACY POLICY</a>
+      </h4>
+      <ul>
+        <li><a href="/policies/terms-of-service">TERMS & CONDITIONS</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>LAILA EL MEHELMY, 2025</h4>
+      <p>ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+</section>
