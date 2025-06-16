@@ -60,15 +60,65 @@
 
 <section>
   <main class="gallery">
-    {% for product in collections.all.products %}
-      <div class="product">
-        <a href="{{ product.url }}">
-          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" />
-          <p class="name">{{ product.title | upcase }} -
-            <span class="price">{{ product.price | money }}</span>
-          </p>
-        </a>
-      </div>
-    {% endfor %}
+    <div class="product">
+      <img src="{{ 'G1.png' | asset_url }}" alt="Sprout Ear Studs" />
+      <p class="name">SPROUT EAR STUDS -
+        <span class="price">€200</span>
+      </p>
+    </div>
+    <div class="product">
+      <img src="{{ 'G2.png' | asset_url }}" alt="Zephyr Ring" />
+      <p class="name">ZEPHYR RING -
+        <span class="price">€215</span>
+      </p>
+    </div>
+    <div class="product">
+      <img src="{{ 'G3.png' | asset_url }}" alt="Germina Bracelet" />
+      <p class="name">GERMINA BRACELET -
+        <span class="price">€335</span>
+      </p>
+    </div>
+    <div class="product">
+      <img src="{{ 'G4.png' | asset_url }}" alt="Spoon Necklace" />
+      <p class="name">SPOON NECKLACE -
+        <span class="price">€335</span>
+      </p>
+    </div>
+    <div class="product">
+      <img src="{{ 'G5.png' | asset_url }}" alt="Sprout Ear Studs" />
+      <p class="name">SPROUT EAR STUDS -
+        <span class="price">€200</span>
+      </p>
+    </div>
+    <div class="product">
+      <img src="{{ 'G1.png' | asset_url }}" alt="Sprout Ear Studs" />
+      <p class="name">SPROUT EAR STUDS -
+        <span class="price">€200</span>
+      </p>
+    </div>
+    <div class="product">
+      <img src="{{ 'G2.png' | asset_url }}" alt="Zephyr Ring" />
+      <p class="name">ZEPHYR RING -
+        <span class="price">€215</span>
+      </p>
+    </div>
+    <div class="product">
+      <img src="{{ 'G3.png' | asset_url }}" alt="Germina Bracelet" />
+      <p class="name">GERMINA BRACELET -
+        <span class="price">€335</span>
+      </p>
+    </div>
+    <div class="product">
+      <img src="{{ 'G4.png' | asset_url }}" alt="Spoon Necklace" />
+      <p class="name">SPOON NECKLACE -
+        <span class="price">€335</span>
+      </p>
+    </div>
+    <div class="product">
+      <img src="{{ 'G5.png' | asset_url }}" alt="Sprout Ear Studs" />
+      <p class="name">SPROUT EAR STUDS -
+        <span class="price">€200</span>
+      </p>
+    </div>
   </main>
 </section>
