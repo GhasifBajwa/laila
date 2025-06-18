@@ -1,0 +1,136 @@
+<style>
+  @font-face {
+    font-family: "GT Cinetype Trial";
+    src: url("./Fonts/Web/GT-Cinetype/GT-Cinetype-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "CenturySchoolbook";
+    src: url("./Fonts/SCHLBKB.TTF") format("opentype");
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .content2 {
+    flex: 3;
+    text-align: center;
+  }
+
+  .content2 img {
+    width: 200px;
+    height: 20px;
+    margin-bottom: 60px;
+  }
+
+  .section2 {
+    margin-bottom: 60px;
+  }
+
+  .section2 img {
+    width: 700px;
+    height: 450px;
+    /* object-fit: cover; */
+  }
+
+  .section2 h2 {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -4%;
+    margin-bottom: 20px;
+    font-family: GT Cinetype Trial;
+  }
+
+  .section2 p {
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 500;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #161616;
+    font-family: CenturySchoolbook;
+  }
+
+  .sidebar2 {
+    flex: 1;
+    padding-left: 40px;
+  }
+
+  .sidebar2 ul {
+    list-style: none;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: -4%;
+    font-weight: 900;
+    font-family: GT Cinetype Trial;
+  }
+
+  .sidebar2 li {
+    margin-bottom: 20px;
+    color: #000;
+  }
+  .sidebar2 li:hover {
+    color: #d9d9d9;
+    cursor: pointer;
+  }
+  .p1 {
+    width: 700px !important;
+  }
+  .list {
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 500;
+    max-width: 573px;
+    margin: 0 auto;
+    color: #161616;
+    font-family: CenturySchoolbook;
+  }
+  .list li {
+    margin-left: 30px;
+  }
+  .active {
+    color: #d9d9d9 !important;
+  }
+</style>
+
+<!-- sections/ring-size-guide.liquid -->
+
+<div class="container">
+  <!-- Main Content -->
+  <div class="content2">
+    <img src="{{ 'RING_SIZE_GUIDE.png' | asset_url }}" alt="Ring Size Guide" />
+
+    <div class="section2">
+      <h2>Find your perfect fit</h2>
+      <p class="p1" style="text-align: start;">
+        The best way to determine your size is by measuring a ring you
+        already wear on the intended finger. Match its internal diameter to
+        our size guide for the most accurate fit.
+      </p>
+    </div>
+
+    <div class="section2">
+      <img src="{{ 'Ring_Size.png' | asset_url }}" alt="Ring Size Chart" />
+    </div>
+
+    <div class="section2">
+      <h2>NOT SURE ABOUT YOUR SIZE?</h2>
+      <p style="text-align: start;">
+        Measure your own ring size easily at home with this ring sizer.
+      </p>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar2">
+    <ul>
+      <li>SHIPPING & DELIVERY</li>
+      <li>RETURNS & EXCHANGE</li>
+      <li class="active">RING SIZE GUIDE</li>
+      <li>JEWELLERY CARE</li>
+    </ul>
+  </div>
+</div>
