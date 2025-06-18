@@ -2,7 +2,10 @@
   <section>
     <nav>
       <a href="{{ routes.root_url }}">
-        <img src="{{ 'Logo.png' | asset_url }}" alt="Logo" class="logo">
+        <img
+          src="{{ 'Logo.png' | asset_url }}"
+          alt="Logo"
+          class="logo">
       </a>
 
       <div class="nav-center">
@@ -15,7 +18,63 @@
         <img src="{{ 'blacksearch.png' | asset_url }}" alt="Search">
         <img src="{{ 'blackuser.png' | asset_url }}" alt="User">
         <img src="{{ 'blackheart.png' | asset_url }}" alt="Wishlist">
-        <img src="{{ 'blackbag.png' | asset_url }}" alt="Cart">
+        <img
+          src="{{ 'blackbag.png' | asset_url }}"
+          class="open-bag"
+          id="openCart"
+          alt="Cart">
+      </div>
+      <div class="overlay" id="overlay"></div>
+
+      <!-- Cart Modal -->
+      <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+          <span>SHOPPING BAG</span>
+          <span class="x-close" id="closeCart">X CLOSE</span>
+        </div>
+
+        <div class="cart-body">
+          <!-- Item 1 -->
+          <div class="cart-item">
+            <img src="{{ 'G1.png' | asset_url }}" alt="Droplet Earrings" />
+            <div class="item-info">
+              <p>DROPLET-EARRINGS-11</p>
+              <hr>
+              <p>SILVER, DIAMONDS</p>
+              <hr>
+              <p>MEDIUM</p>
+              <hr>
+              <p>€550</p>
+              <p class="remove">X REMOVE</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="cart-item">
+            <img src="{{ 'G2.png' | asset_url }}" alt="Seed Ring" />
+            <div class="item-info">
+              <p>SEED-RING-01</p>
+              <hr>
+              <p>SILVER</p>
+              <hr>
+              <p>5</p>
+              <hr>
+              <p>€200</p>
+              <p class="remove">X REMOVE</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-section">
+          <p class="total-label">SHIPPING</p>
+          <hr style="border-top: 1px solid #000; width: 400px; margin-left: -15px;" />
+          <p class="total-label">TOTAL</p>
+          <p class="total-amount">€808</p>
+          <p style="font-size: 14px; color: #ADADAD; margin-bottom: 10px; font-family: GT Cinetype Trial;">
+            INCL. VAT
+          </p>
+          <button class="checkout-button">CHECKOUT</button>
+        </div>
       </div>
     </nav>
   </section>
