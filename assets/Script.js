@@ -138,3 +138,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+const openCart = document.getElementById("openCart");
+const closeCart = document.getElementById("closeCart");
+const overlay = document.getElementById("overlay");
+const cartModal = document.getElementById("cartModal");
+
+openCart.onclick = () => {
+  cartModal.classList.add("open");
+  overlay.classList.add("show");
+};
+
+closeCart.onclick = () => {
+  cartModal.classList.remove("open");
+  overlay.classList.remove("show");
+};
+
+overlay.onclick = () => {
+  cartModal.classList.remove("open");
+  overlay.classList.remove("show");
+};
