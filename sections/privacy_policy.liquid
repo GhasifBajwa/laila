@@ -1,0 +1,104 @@
+<style>
+  @font-face {
+    font-family: "GT Cinetype Trial";
+    src: url("./Fonts/Web/GT-Cinetype/GT-Cinetype-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "CenturySchoolbook";
+    src: url("./Fonts/SCHLBKB.TTF") format("opentype");
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .section4 {
+    flex: 3;
+    text-align: center;
+  }
+
+  .section4 img {
+    width: 250px;
+    height: 25px;
+    margin-bottom: 60px;
+  }
+
+  .section4 {
+    margin-bottom: 60px;
+  }
+
+  .section4 h2 {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -4%;
+    margin-bottom: 15px;
+    font-family: GT Cinetype Trial;
+  }
+
+  .section4 p {
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 500;
+    max-width: 640px;
+    margin: 0 auto;
+    color: #161616;
+    font-family: CenturySchoolbook;
+  }
+
+  .sidebar4 {
+    flex: 1;
+    padding-left: 40px;
+  }
+
+  .sidebar4 ul {
+    list-style: none;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: -4%;
+    font-weight: 900;
+    font-family: GT Cinetype Trial;
+  }
+
+  .sidebar4 li {
+    margin-bottom: 20px;
+    color: #000;
+  }
+  .sidebar4 li:hover {
+    color: #d9d9d9;
+    cursor: pointer;
+  }
+  .active {
+    color: #d9d9d9 !important;
+  }
+</style>
+<!-- sections/privacy-policy.liquid -->
+
+<div class="container">
+  <!-- Main Section -->
+  <div class="section4">
+    <img src="{{ 'PRIVACY_POLICY.png' | asset_url }}" alt="Privacy Policy" />
+
+    <div class="section4">
+      <h2>GENERAL</h2>
+      <p style="text-align: start;">
+        At Laila El Mehelmy, we value your trust and are committed to
+        protecting your privacy. This Privacy Policy describes how your
+        personal information is collected, used, and shared when you visit
+        or make a purchase from www.lailaelmehelmy.com (the “Site”).
+        <br/><br/>
+        By using our services, you consent to the practices described below.
+      </p>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar4">
+    <ul>
+      <li class="active">PRIVACY POLICY</li>
+      <li>TERMS & CONDITIONS</li>
+    </ul>
+  </div>
+</div>
