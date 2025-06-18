@@ -1,0 +1,154 @@
+<style>
+  @font-face {
+    font-family: "GT Cinetype Trial";
+    src: url("./Fonts/Web/GT-Cinetype/GT-Cinetype-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "CenturySchoolbook";
+    src: url("./Fonts/SCHLBKB.TTF") format("opentype");
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Georgia"
+    , serif;
+    background-color: #fff;
+    color: #222;
+    padding: 60px 40px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .content1 {
+    flex: 3;
+    text-align: center;
+  }
+
+  .content1 img {
+    width: 250px;
+    height: 20px;
+    margin-bottom: 60px;
+  }
+
+  .section1 {
+    margin-bottom: 60px;
+  }
+
+  .section1 h2 {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -4%;
+    margin-bottom: 15px;
+    font-family: GT Cinetype Trial;
+  }
+
+  .section1 p {
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 500;
+    max-width: 573px;
+    margin: 0 auto;
+    color: #161616;
+    font-family: CenturySchoolbook;
+  }
+
+  .sidebar1 {
+    flex: 1;
+    padding-left: 40px;
+  }
+
+  .sidebar1 ul {
+    list-style: none;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: -4%;
+    font-weight: 900;
+    font-family: GT Cinetype Trial;
+  }
+
+  .sidebar1 li {
+    margin-bottom: 20px;
+    color: #000;
+  }
+  .sidebar1 li:hover {
+    color: #d9d9d9;
+    cursor: pointer;
+  }
+  .p1 {
+    width: 432px !important;
+  }
+  .list {
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 500;
+    max-width: 573px;
+    margin: 0 auto;
+    color: #161616;
+    font-family: CenturySchoolbook;
+  }
+  .list li {
+    margin-left: 30px;
+  }
+  .active {
+    color: #d9d9d9 !important;
+  }
+</style>
+
+<!-- sections/returns-exchange.liquid -->
+
+<div class="container">
+  <!-- Main Content -->
+  <div class="content1">
+    <img src="{{ 'RETURNS.png' | asset_url }}" alt="Returns & Exchange" />
+
+    <div class="section1">
+      <h2>HOW TO RETURN?</h2>
+      <p class="p1">
+        You have up to 14 days from the delivery date to request a return
+ 
+ 
+ 
+        and send back any unused items.
+      </p>
+    </div>
+
+    <div class="section1">
+      <h2>RETURN CONDITIONS</h2>
+      <p style="text-align: start;">
+        Feel free to try your piece on, just as you would in a store, but
+ 
+ 
+ 
+        please handle it with care. Returns must be in their original
+        condition. If an item is worn, damaged, or sent back outside the
+        return window, we won’t be able to process a refund.
+      </p>
+      <br>
+      <p style="text-align: start;">Items must be:</p>
+      <ul class="list" style="text-align: start;">
+        <li>Unworn and unused</li>
+        <li>In their original condition</li>
+        <li>Returned with the original tag still attached</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar1">
+    <ul>
+      <li>SHIPPING & DELIVERY</li>
+      <li class="active">RETURNS & EXCHANGE</li>
+      <li>RING SIZE GUIDE</li>
+      <li>JEWELLERY CARE</li>
+    </ul>
+  </div>
+</div>
