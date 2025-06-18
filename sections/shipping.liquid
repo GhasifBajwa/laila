@@ -1,0 +1,137 @@
+<style>
+  @font-face {
+    font-family: "GT Cinetype Trial";
+    src: url("./Fonts/Web/GT-Cinetype/GT-Cinetype-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "CenturySchoolbook";
+    src: url("./Fonts/SCHLBKB.TTF") format("opentype");
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .content {
+    flex: 3;
+    text-align: center;
+  }
+
+  .content img {
+    width: 250px;
+    height: 25px;
+    margin-bottom: 60px;
+  }
+
+  .section {
+    margin-bottom: 60px;
+  }
+
+  .section h2 {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -4%;
+    margin-bottom: 15px;
+    font-family: GT Cinetype Trial;
+  }
+
+  .section p {
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 500;
+    max-width: 573px;
+    margin: 0 auto;
+    color: #161616;
+    font-family: CenturySchoolbook;
+  }
+
+  .sidebar {
+    flex: 1;
+    padding-left: 40px;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: -4%;
+    font-weight: 900;
+    font-family: GT Cinetype Trial;
+  }
+
+  .sidebar li {
+    margin-bottom: 20px;
+    color: #000;
+  }
+  .sidebar li:hover {
+    color: #d9d9d9;
+    cursor: pointer;
+  }
+  .p1 {
+    width: 432px !important;
+  }
+  .active {
+    color: #d9d9d9;
+  }
+</style>
+
+<!-- sections/shipping-delivery.liquid -->
+
+<div class="container">
+  <!-- Main Content -->
+  <div class="content">
+    <img src="{{ 'SHIPPING & DELIVERY.png' | asset_url }}" alt="Shipping & Delivery" />
+
+    <div class="section">
+      <h2>SHIPPING ORIGIN</h2>
+      <p class="p1">
+        All orders are shipped from our atelier in Amsterdam, the Netherlands.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>ORDER STATUS</h2>
+      <p style="text-align: start;">
+        Our jewelry is thoughtfully handcrafted in limited quantities,
+ 
+ 
+ 
+        ensuring the highest standards of quality and craftsmanship. Each
+        piece is made in our ateliers with care and precision. Shipping
+        times vary based on availability, some designs are ready to ship
+        within 2–3 days, while others require a few weeks to be completed.
+        You’ll find the estimated timeline on each product’s page.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>DUTIES & TAXES</h2>
+      <p style="text-align: start;">
+        Orders within the EU include all duties and taxes, no surprises at
+ 
+ 
+ 
+        checkout.<br><br>
+        For orders outside the EU, customs duties may apply and are the
+ 
+ 
+ 
+        responsibility of the recipient. Since regulations vary by country,
+        we recommend checking with your local customs office for details.
+      </p>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li class="active">SHIPPING & DELIVERY</li>
+      <li>RETURNS & EXCHANGE</li>
+      <li>RING SIZE GUIDE</li>
+      <li>JEWELLERY CARE</li>
+    </ul>
+  </div>
+</div>
