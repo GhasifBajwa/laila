@@ -1,0 +1,197 @@
+<style>
+  @font-face {
+    font-family: "GT Cinetype Trial";
+    src: url("{{ 'GT-Cinetype-Regular.woff2' | asset_url }}") format("woff2");
+  }
+  @font-face {
+    font-family: "CenturySchoolbook";
+    src: url("{{ 'SCHLBKB.TTF' | asset_url }}") format("truetype");
+  }
+
+  .checkout-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    padding-top: 100px;
+  }
+
+  /* Left: Delivery Form */
+  .delivery-details {
+    flex: 2;
+    padding: 0 175px;
+  }
+
+  .delivery-details img {
+    height: 30px;
+    width: 300px;
+    margin-bottom: 25px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+
+  .form-row input {
+    width: 300px;
+    height: 46px;
+    padding: 10px;
+    border: none;
+    background-color: #eee;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: GT Cinetype Trial;
+  }
+
+  /* Right: Order Summary */
+  .order-summary {
+    /* flex: 1; */
+    width: 400px !important;
+    border-left: 1px solid #000;
+    padding-left: 20px;
+  }
+
+  .summary-table {
+    font-size: 14px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  .summary-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+    font-family: GT Cinetype Trial;
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  .summary-table td:first-child {
+    text-transform: uppercase;
+    color: #000;
+  }
+
+  .summary-table td:last-child {
+    text-align: right;
+  }
+
+  .delivery-item {
+    display: flex;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    /* margin-bottom: 15px; */
+  }
+
+  .delivery-item img {
+    width: 190px;
+    height: 225px;
+    object-fit: cover;
+  }
+
+  .item-info {
+    padding: 10px;
+    width: 50%;
+    font-size: 12px;
+  }
+
+  .item-info p {
+    margin: 5px 0;
+    font-family: GT Cinetype Trial;
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  .remove {
+    color: #e34230;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+    transform: translateY(75px);
+  }
+
+  .order-summary h3 {
+    font-size: 14px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #000;
+    font-family: GT Cinetype Trial;
+  }
+  .divider {
+    /* color: black; */
+    height: 2px solid black;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<div class="checkout-container">
+  <!-- LEFT: Delivery Form -->
+  <div class="delivery-details">
+    <img src="{{ 'DELIVERY DETAILS.png' | asset_url }}" alt="Delivery Details">
+    <div class="form-row">
+      <input type="text" placeholder="FIRST NAME" />
+      <input type="text" placeholder="LAST NAME" />
+    </div>
+  </div>
+
+  <!-- RIGHT: Order Summary -->
+  <div class="order-summary">
+    <h3>ORDER SUMMARY</h3>
+    <hr class="divider" style="border-bottom: 1px solid #000" />
+    <table class="summary-table">
+      <tr>
+        <td>Sub Total</td>
+        <td>€808</td>
+      </tr>
+      <tr>
+        <td>Shipping</td>
+        <td>FREE</td>
+      </tr>
+      <tr>
+        <td>VAT</td>
+        <td>€150</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Total</strong>
+        </td>
+        <td>
+          <strong>€808</strong>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Item 1 -->
+    <div class="delivery-item">
+      <img src="{{ 'G1.png' | asset_url }}" alt="Droplet Earrings" />
+      <div class="item-info">
+        <p>DROPLET-EARRINGS-11</p>
+        <hr/>
+        <p>SILVER, DIAMONDS</p>
+        <hr/>
+        <p>MEDIUM</p>
+        <hr/>
+        <p>€550</p>
+        <p class="remove">X REMOVE</p>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="delivery-item">
+      <img src="{{ 'G2.png' | asset_url }}" alt="Seed Ring" />
+      <div class="item-info">
+        <p>SEED-RING-01</p>
+        <hr/>
+        <p>SILVER</p>
+        <hr/>
+        <p>5</p>
+        <hr/>
+        <p>€200</p>
+        <p class="remove">X REMOVE</p>
+      </div>
+    </div>
+  </div>
+</div>
