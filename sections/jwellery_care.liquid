@@ -1,11 +1,11 @@
 <style>
   @font-face {
     font-family: "GT Cinetype Trial";
-    src: url("./Fonts/Web/GT-Cinetype/GT-Cinetype-Regular.woff2") format("woff2");
+    src: url("{{ 'GT-Cinetype-Regular.woff2' | asset_url }}") format("woff2");
   }
   @font-face {
     font-family: "CenturySchoolbook";
-    src: url("./Fonts/SCHLBKB.TTF") format("opentype");
+    src: url("{{ 'SCHLBKB.TTF' | asset_url }}") format("truetype");
   }
 
   .container {
@@ -88,6 +88,8 @@
       <h2>FOR SILVER</h2>
       <p style="text-align: start;">
         Gently scrub silver with an old toothbrush and toothpaste for shine.
+ 
+ 
         For a deeper clean, soak in baking soda and warm water, then dry
         with a soft cloth. Use a toothbrush for stubborn spots.
       </p>
@@ -97,6 +99,8 @@
       <h2>FOR GOLD</h2>
       <p style="text-align: start;">
         Soak gold in warm water and dish soap for 10–30 minutes.
+ 
+ 
         Gently scrub with a toothbrush, rinse well, and dry with a soft
         cloth for shine.
       </p>
