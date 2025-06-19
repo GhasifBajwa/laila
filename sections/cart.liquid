@@ -1,0 +1,184 @@
+<style>
+  @font-face {
+    font-family: "GT Cinetype Trial";
+    src: url("{{ 'GT-Cinetype-Regular.woff2' | asset_url }}") format("woff2");
+  }
+  @font-face {
+    font-family: "CenturySchoolbook";
+    src: url("{{ 'SCHLBKB.TTF' | asset_url }}") format("truetype");
+  }
+
+  .container {
+    display: flex;
+    padding: 20px;
+    padding-top: 100px;
+  }
+
+  .left {
+    /* flex: 1; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left img {
+    /* width: 80%; */
+    /* max-width: 400px; */
+    width: 708px;
+    height: 850px;
+    object-fit: cover;
+  }
+
+  .right {
+    flex: 1;
+    padding: 20px;
+    max-width: 500px !important;
+  }
+
+  .right h1 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    font-family: GT Cinetype Trial;
+  }
+
+  .right .meta {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -4%;
+    font-family: GT Cinetype Trial;
+  }
+  .right hr {
+    width: 215px;
+    margin: 10px 0;
+  }
+
+  .right .price {
+    font-size: 14px;
+    font-weight: 900;
+    margin: 15px 0;
+    font-family: GT Cinetype Trial;
+  }
+
+  .add-to-bag {
+    background-color: #e34230;
+    color: white;
+    width: 322px;
+    height: 42px;
+    border: none;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+    margin: 15px 0;
+    font-family: GT Cinetype Trial;
+  }
+
+  .free-shipping {
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: 900;
+    letter-spacing: -4%;
+    font-family: GT Cinetype Trial;
+  }
+
+  .description img {
+    height: 25px;
+    width: 209px;
+  }
+
+  .description p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 377px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 100%;
+    font-family: CenturySchoolbook;
+  }
+
+  .description span {
+    display: block;
+    margin-bottom: 20px;
+    color: #8f8f8f;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: GT Cinetype Trial;
+    /* line-height: 3px; */
+  }
+
+  .thumbnail-label {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -4%;
+    font-family: GT Cinetype Trial;
+  }
+
+  .thumbnails {
+    display: flex;
+    margin-top: 20px;
+    gap: 5px;
+  }
+
+  .thumbnails img {
+    width: 102px;
+    height: 122px;
+    border: 1px solid #ccc;
+  }
+
+  .close {
+    color: red;
+    font-size: 10px;
+    float: right;
+    text-decoration: none;
+  }
+</style>
+
+<div class="container">
+  <!-- LEFT SECTION -->
+  <div class="left">
+    <img src="{{ 'G1.png' | asset_url }}" alt="Droplet Earrings" />
+  </div>
+
+  <!-- RIGHT SECTION -->
+  <div class="right">
+    <a class="close" href="#">X CLOSE</a>
+    <h1 class="meta">DROPLET-EARRINGS-11</h1>
+    <hr/>
+    <div class="meta">SILVER, DIAMONDS</div>
+    <hr/>
+    <div class="meta">MEDIUM</div>
+    <hr/>
+    <div class="price">€550</div>
+    <button class="add-to-bag">ADD TO BAG</button>
+    <div class="free-shipping">FREE SHIPPING IN EU</div>
+
+    <div class="description">
+      <img src="{{ 'DESCRIPTION.png' | asset_url }}" alt="Description" />
+      <p>
+        The Pollinating Palms collection pays tribute to nature’s silent
+ 
+ 
+        architects—the palms and their hidden symphony of life. Each piece
+        reflects the delicate dance of pollination, where subtle connections
+        spark transformation.
+      </p>
+
+      <span>STERLING SILVER, DIAMONDS</span><br/>
+      <span>NICKLE FREE</span><br/>
+      <span>HIGH POLISHED FINISH</span><br/>
+      <span>MEASUREMENTS: 40 MM X 40 MM</span><br/>
+      <span>ETHICALLY HANDMADE IN AMSTERDAM</span>
+    </div>
+
+    <div class="thumbnail-div">
+      <div class="thumbnail-label">OTHER DROPLET EARRINGS</div>
+      <div class="thumbnails">
+        <img src="{{ 'G1.png' | asset_url }}" alt="Thumbnail 1" />
+        <img src="{{ 'G1.png' | asset_url }}" alt="Thumbnail 2" />
+        <img src="{{ 'G1.png' | asset_url }}" alt="Thumbnail 3" />
+      </div>
+    </div>
+  </div>
+</div>
