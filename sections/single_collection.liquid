@@ -24,25 +24,19 @@
 </style>
 
 {% comment %} Static Shopify section for the SEED collection gallery and filter navigation {% endcomment %}
-
+{% comment %} Dynamic filter nav by product types (or tags, or collections) {% endcomment %}
 <section>
   <div class="Filter-nav">
     <ul class="Filter-nav-links">
       <li>
-        <a href="#">ALL</a>
+        <a href="{{ collections.all.url }}">ALL</a>
       </li>
-      <li>
-        <a href="#">RINGS</a>
-      </li>
-      <li>
-        <a href="#">EARRINGS</a>
-      </li>
-      <li>
-        <a href="#">NECKLACES</a>
-      </li>
-      <li>
-        <a href="#">BRACELETS</a>
-      </li>
+      {% assign product_types = collections.all.products | map: 'type' | uniq %}
+      {% for type in product_types %}
+        <li>
+          <a href="{{ collections.all.url }}?type={{ type | url_encode }}">{{ type | upcase }}</a>
+        </li>
+      {% endfor %}
     </ul>
     <div class="filter">
       <img src="{{ 'icon_filter.png' | asset_url }}" alt="Filter Icon" />
@@ -51,84 +45,36 @@
   </div>
 </section>
 
+{% comment %} Dynamic collection description and banner {% endcomment %}
 <section>
   <div class="collection_heading">
-    <img src="{{ 'PLANTING_ SEED.png' | asset_url }}" alt="Planting Seed Banner" />
+    {% if collection.image %}
+      <img src="{{ collection.image | image_url: width: 600 }}" alt="{{ collection.title }}" />
+    {% else %}
+      <img src="{{ 'PLANTING_SEED.png' | asset_url }}" alt="Planting Seed Banner" />
+    {% endif %}
     <p>
-      Launching the brand felt like planting a seed. The first part of the
- 
- 
- 
-      collection, inspired by this concept, embodies the essence of a seed —
-      wholesome, perfect in its imperfection, and brimming with the
-      potential to sprout into something unexpectedly beautiful. The rings
-      in this collection embrace the simplicity of form, inviting wearers to
-      embark on a SEED journey of growth.
+      {{ collection.description | escape | newline_to_br }}
     </p>
   </div>
 </section>
 
+{% comment %} Dynamic products grid from the selected collection {% endcomment %}
 <section>
   <main class="gallery">
-    <div class="product">
-      <img src="{{ 'G1.png' | asset_url }}" alt="Sprout Ear Studs" />
-      <p class="name">SPROUT EAR STUDS -
-        <span class="price">€200</span>
-      </p>
-    </div>
-    <div class="product">
-      <img src="{{ 'G2.png' | asset_url }}" alt="Zephyr Ring" />
-      <p class="name">ZEPHYR RING -
-        <span class="price">€215</span>
-      </p>
-    </div>
-    <div class="product">
-      <img src="{{ 'G3.png' | asset_url }}" alt="Germina Bracelet" />
-      <p class="name">GERMINA BRACELET -
-        <span class="price">€335</span>
-      </p>
-    </div>
-    <div class="product">
-      <img src="{{ 'G4.png' | asset_url }}" alt="Spoon Necklace" />
-      <p class="name">SPOON NECKLACE -
-        <span class="price">€335</span>
-      </p>
-    </div>
-    <div class="product">
-      <img src="{{ 'G5.png' | asset_url }}" alt="Sprout Ear Studs" />
-      <p class="name">SPROUT EAR STUDS -
-        <span class="price">€200</span>
-      </p>
-    </div>
-    <div class="product">
-      <img src="{{ 'G1.png' | asset_url }}" alt="Sprout Ear Studs" />
-      <p class="name">SPROUT EAR STUDS -
-        <span class="price">€200</span>
-      </p>
-    </div>
-    <div class="product">
-      <img src="{{ 'G2.png' | asset_url }}" alt="Zephyr Ring" />
-      <p class="name">ZEPHYR RING -
-        <span class="price">€215</span>
-      </p>
-    </div>
-    <div class="product">
-      <img src="{{ 'G3.png' | asset_url }}" alt="Germina Bracelet" />
-      <p class="name">GERMINA BRACELET -
-        <span class="price">€335</span>
-      </p>
-    </div>
-    <div class="product">
-      <img src="{{ 'G4.png' | asset_url }}" alt="Spoon Necklace" />
-      <p class="name">SPOON NECKLACE -
-        <span class="price">€335</span>
-      </p>
-    </div>
-    <div class="product">
-      <img src="{{ 'G5.png' | asset_url }}" alt="Sprout Ear Studs" />
-      <p class="name">SPROUT EAR STUDS -
-        <span class="price">€200</span>
-      </p>
-    </div>
+    {% for product in collection.products %}
+      <div class="product">
+        <a href="{{ product.url }}">
+          {% if product.featured_image %}
+            <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" />
+          {% else %}
+            <img src="{{ 'placeholder.png' | asset_url }}" alt="Placeholder" />
+          {% endif %}
+          <p class="name">{{ product.title | upcase }} -
+            <span class="price">{{ product.price | money }}</span>
+          </p>
+        </a>
+      </div>
+    {% endfor %}
   </main>
 </section>
