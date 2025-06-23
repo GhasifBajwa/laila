@@ -1,28 +1,56 @@
 <section>
   <div class="gallery_Collection">
-    <div class="item1">
+    <div class="item item1">
       <img src="{{ 'Coll-1.png' | asset_url }}" alt="Planting Seed" />
       <div class="caption">PLANTING: SEED</div>
     </div>
-    <div class="item2">
+    <div class="item item2">
       <img src="{{ 'Coll-2.png' | asset_url }}" alt="Planting Sprout" />
       <div class="caption">PLANTING: SPROUT</div>
     </div>
-    <div class="item3">
+    <div class="item item3">
       <img src="{{ 'Coll-3.png' | asset_url }}" alt="Planting Root" />
       <div class="caption">PLANTING: ROOT</div>
     </div>
-    <div class="item4">
+    <div class="item item4">
       <img src="{{ 'Coll-4.png' | asset_url }}" alt="Ooooooooh La Tice" />
       <div class="caption">OOOOOOOOOH LA TICE</div>
     </div>
-    <div class="item5">
+    <div class="item item5">
       <img src="{{ 'Coll-5.png' | asset_url }}" alt="Pollinating Palms" />
       <div class="caption">POLLINATING PALMS</div>
     </div>
-    <div class="item6">
+    <div class="item item6">
       <img src="{{ 'Coll-6.png' | asset_url }}" alt="Flora WIP" />
       <div class="caption">FLORA (WIP)</div>
     </div>
   </div>
 </section>
+<script>
+    const items = document.querySelectorAll(".item img");
+  
+    document.addEventListener("mousemove", (e) => {
+      items.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        const imgX = rect.left + rect.width / 2;
+        const imgY = rect.top + rect.height / 2;
+  
+        const dx = e.clientX - imgX;
+        const dy = e.clientY - imgY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+  
+        const force = Math.min(15, 100 / dist); // limit max movement
+  
+        const moveX = -dx * force * 0.5;
+        const moveY = -dy * force * 0.5;
+  
+        img.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    });
+  
+    document.addEventListener("mouseleave", () => {
+      items.forEach((img) => {
+        img.style.transform = "translate(0, 0)";
+      });
+    });
+</script>
