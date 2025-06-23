@@ -35,7 +35,7 @@
   <div class="gallery_Collection">
     {% for collection in collections %}
       <div class="item item{{ forloop.index }}">
-        <img src="{{ collection.image | image_url: width: 100 }}" alt="{{ collection.title }}" />
+        <img src="{{ collection.image | image_url: width: 500 }}" alt="{{ collection.title }}" />
         <div class="caption">{{ collection.title | upcase }}</div>
       </div>
     {% endfor %}
