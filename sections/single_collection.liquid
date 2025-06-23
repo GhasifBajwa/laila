@@ -24,51 +24,59 @@
 </style>
 
 {% comment %} Static Shopify section for the SEED collection gallery and filter navigation {% endcomment %}
-{% comment %} Filter navigation and collection info {% endcomment %}
-<section>
-  <div class="Filter-nav">
-    <ul class="Filter-nav-links">
-      <li>
-        <a href="{{ collections.all.url }}">ALL</a>
-      </li>
-      {% assign product_types = collections.all.products | map: 'type' | uniq %}
-      {% for type in product_types %}
+{% assign collection_handle = request.params.collection %}
+{% assign collection = collections[collection_handle] %}
+
+{% if collection %}
+  <section>
+    <div class="Filter-nav">
+      <ul class="Filter-nav-links">
         <li>
-          <a href="{{ collections.all.url }}?type={{ type | url_encode }}">{{ type | upcase }}</a>
+          <a href="{{ collections.all.url }}">ALL</a>
         </li>
-      {% endfor %}
-    </ul>
-    <div class="filter">
-      <img src="{{ 'icon_filter.png' | asset_url }}" alt="Filter Icon" />
-      <span>FILTER</span>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="collection_heading">
-    {% if collection.image %}
-      <img src="{{ collection.image | image_url: width: 600 }}" alt="{{ collection.title }}" />
-    {% endif %}
-    <p>{{ collection.description | escape | newline_to_br }}</p>
-  </div>
-</section>
-
-<section>
-  <main class="gallery">
-    {% for product in collection.products %}
-      <div class="product">
-        <a href="{{ product.url }}">
-          {% if product.featured_image %}
-            <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" />
-          {% else %}
-            <img src="{{ 'placeholder.png' | asset_url }}" alt="Placeholder" />
-          {% endif %}
-          <p class="name">{{ product.title | upcase }} -
-            <span class="price">{{ product.price | money }}</span>
-          </p>
-        </a>
+        {% assign product_types = collections.all.products | map: 'type' | uniq %}
+        {% for type in product_types %}
+          <li>
+            <a href="{{ collections.all.url }}?type={{ type | url_encode }}">{{ type | upcase }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="filter">
+        <img src="{{ 'icon_filter.png' | asset_url }}" alt="Filter Icon" />
+        <span>FILTER</span>
       </div>
-    {% endfor %}
-  </main>
-</section>
+    </div>
+  </section>
+
+  <section>
+    <div class="collection_heading">
+      {% if collection.image %}
+        <img src="{{ collection.image | image_url: width: 600 }}" alt="{{ collection.title }}" />
+      {% endif %}
+      <p>{{ collection.description | escape | newline_to_br }}</p>
+    </div>
+  </section>
+
+  <section>
+    <main class="gallery">
+      {% for product in collection.products %}
+        <div class="product">
+          <a href="{{ product.url }}">
+            {% if product.featured_image %}
+              <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" />
+            {% else %}
+              <img src="{{ 'placeholder.png' | asset_url }}" alt="Placeholder" />
+            {% endif %}
+            <p class="name">{{ product.title | upcase }} -
+              <span class="price">{{ product.price | money }}</span>
+            </p>
+          </a>
+        </div>
+      {% else %}
+        <p>No products found in "{{ collection.title }}".</p>
+      {% endfor %}
+    </main>
+  </section>
+{% else %}
+  <p>Error: Collection "{{ collection_handle }}" not found.</p>
+{% endif %}
