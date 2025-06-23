@@ -7,13 +7,35 @@
 <section>
   <div class="gallery_Collection">
     {% for collection in collections %}
-      {% assign img_width = collection.metafields.custom.image_width | default: 300 %}
-      {% assign img_height = collection.metafields.custom.image_height | default: 250 %}
-      <div class="item" style="text-align:center;">
+      {% assign img_width = 300 %}
+      {% assign img_height = 250 %}
+
+      {% case collection.handle %}
+        {% when 'collection-1' %}
+          {% assign img_width = 250 %}
+          {% assign img_height = 250 %}
+        {% when 'collection-2' %}
+          {% assign img_width = 205 %}
+          {% assign img_height = 250 %}
+        {% when 'collection-3' %}
+          {% assign img_width = 482 %}
+          {% assign img_height = 250 %}
+        {% when 'collection-4' %}
+          {% assign img_width = 347 %}
+          {% assign img_height = 227 %}
+        {% when 'collection-5' %}
+          {% assign img_width = 230 %}
+          {% assign img_height = 290 %}
+        {% when 'collection-6' %}
+          {% assign img_width = 258 %}
+          {% assign img_height = 264 %}
+      {% endcase %}
+
+      <div class="item">
         <img
           src="{{ collection.image | image_url: width: img_width }}"
           alt="{{ collection.title }}"
-          style="width: {{ img_width }}px; height: {{ img_height }}px; object-fit: cover; border: 1px solid #ccc;" />
+          style="width: {{ img_width }}px; height: {{ img_height }}px;" />
         <div class="caption">{{ collection.title | upcase }}</div>
       </div>
     {% endfor %}
