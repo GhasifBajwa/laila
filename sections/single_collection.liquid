@@ -24,8 +24,17 @@
 </style>
 
 {% comment %} Static Shopify section for the SEED collection gallery and filter navigation {% endcomment %}
-{% assign collection_handle = "Seed" %} <!-- Use verified handle -->
+{% assign collection_handle = "seed" %} <!-- Use lowercase handle -->
 {% assign collection = collections[collection_handle] %}
+
+{% comment %} Debug Output {% endcomment %}
+<!-- 
+Debug:
+- URL Parameter: {{ request.params.collection }}
+- Collection Handle: {{ collection_handle }}
+- Collection Found: {{ collection.title | default: "NOT FOUND" }}
+- Products: {{ collection.products.size }}
+-->
 
 {% if collection %}
   <section>
@@ -58,37 +67,48 @@
   </section>
 
   <section>
-{% comment %} Get the collection handle from URL ?collection=... {% endcomment %}
-{% assign collection_handle = request.params.collection %}
-{% assign collection = collections[collection_handle] %}
-
-{% comment %} Debug Output (Remove later) {% endcomment %}
-<p><strong>Debug:</strong></p>
-<p>URL Parameter: <code>{{ request.params.collection }}</code></p>
-<p>Collection Handle: <code>{{ collection_handle }}</code></p>
-<p>Collection Found: <code>{{ collection.title | default: "NOT FOUND" }}</code></p>
-<p>Products: <code>{{ collection.products.size }}</code></p>
-
-{% if collection %}
-  <!-- Your existing collection display code -->
-  <h1>{{ collection.title }}</h1>
-  <p>{{ collection.description }}</p>
-  
-  {% for product in collection.products %}
-    <div>
-      <a href="{{ product.url }}">
-        <img src="{{ product.featured_image | img_url: '300x' }}" alt="{{ product.title }}">
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.price | money }}</p>
-      </a>
-    </div>
-  {% else %}
-    <p>No products in this collection.</p>
-  {% endfor %}
-{% else %}
-  <p><strong>Error:</strong> Collection <code>{{ collection_handle }}</code> not found.</p>
-{% endif %}
+    <h1>{{ collection.title }}</h1>
+    
+    {% if collection.products.size > 0 %}
+      <div class="product-grid">
+        {% for product in collection.products %}
+          <div class="product">
+            <a href="{{ product.url }}">
+              {% if product.featured_image %}
+                <img src="{{ product.featured_image | img_url: '300x' }}" alt="{{ product.title }}" loading="lazy">
+              {% endif %}
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.price | money }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No products found in this collection.</p>
+      
+      {% comment %} Additional debug info {% endcomment %}
+      <div style="background: #f8f8f8; padding: 15px; margin-top: 20px;">
+        <h4>Debug Information:</h4>
+        <p>Collection Handle: <strong>{{ collection.handle }}</strong></p>
+        <p>All Collection Handles Available:</p>
+        <ul>
+          {% for c in collections %}
+            <li>{{ c.title }} ({{ c.handle }})</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   </section>
 {% else %}
   <p>Error: Collection "{{ collection_handle }}" not found.</p>
+  
+  {% comment %} Show available collections for debugging {% endcomment %}
+  <div style="background: #f8f8f8; padding: 15px; margin-top: 20px;">
+    <h4>Available Collections:</h4>
+    <ul>
+      {% for c in collections %}
+        <li>{{ c.title }} ({{ c.handle }})</li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endif %}
