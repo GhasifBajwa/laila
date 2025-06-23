@@ -1,42 +1,5 @@
 <style>
-  .item1 img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-  }
-
-  .item2 img {
-    width: 205px;
-    height: 250px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-  }
-
-  .item3 img {
-    width: 482px;
-    height: 250px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-  }
-
-  .item4 img {
-    width: 347px;
-    height: 227px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-  }
-
-  .item5 img {
-    width: 230px;
-    height: 290px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-  }
-
-  .item6 img {
-    width: 258px;
-    height: 264px;
+  .item img {
     object-fit: cover;
     border: 1px solid #ccc;
   }
@@ -44,13 +7,19 @@
 <section>
   <div class="gallery_Collection">
     {% for collection in collections %}
-      <div class="item">
-        <img src="{{ collection.image | image_url: width: 100 }}" alt="{{ collection.title }}" />
+      {% assign img_width = collection.metafields.custom.image_width | default: 300 %}
+      {% assign img_height = collection.metafields.custom.image_height | default: 250 %}
+      <div class="item" style="text-align:center;">
+        <img
+          src="{{ collection.image | image_url: width: img_width }}"
+          alt="{{ collection.title }}"
+          style="width: {{ img_width }}px; height: {{ img_height }}px; object-fit: cover; border: 1px solid #ccc;" />
         <div class="caption">{{ collection.title | upcase }}</div>
       </div>
     {% endfor %}
   </div>
 </section>
+
 
 <script>
   const items = document.querySelectorAll(".item img");
