@@ -35,7 +35,7 @@
   <div class="gallery_Collection">
     {% for collection in collections %}
       <div class="item item{{ forloop.index }}">
-        <a href="{{ collection.url }}">
+        <a href="/pages/single_collection?collection={{ collection.handle }}">
           <img src="{{ collection.image | image_url: width: 500 }}" alt="{{ collection.title }}" />
         </a>
         <div class="caption">{{ collection.title | upcase }}</div>
