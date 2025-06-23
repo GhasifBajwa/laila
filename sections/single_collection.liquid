@@ -24,7 +24,7 @@
 </style>
 
 {% comment %} Static Shopify section for the SEED collection gallery and filter navigation {% endcomment %}
-{% comment %} Dynamic filter nav by product types (or tags, or collections) {% endcomment %}
+{% comment %} Filter navigation and collection info {% endcomment %}
 <section>
   <div class="Filter-nav">
     <ul class="Filter-nav-links">
@@ -45,21 +45,15 @@
   </div>
 </section>
 
-{% comment %} Dynamic collection description and banner {% endcomment %}
 <section>
   <div class="collection_heading">
     {% if collection.image %}
       <img src="{{ collection.image | image_url: width: 600 }}" alt="{{ collection.title }}" />
-    {% else %}
-      <img src="{{ 'PLANTING_SEED.png' | asset_url }}" alt="Planting Seed Banner" />
     {% endif %}
-    <p>
-      {{ collection.description | escape | newline_to_br }}
-    </p>
+    <p>{{ collection.description | escape | newline_to_br }}</p>
   </div>
 </section>
 
-{% comment %} Dynamic products grid from the selected collection {% endcomment %}
 <section>
   <main class="gallery">
     {% for product in collection.products %}
