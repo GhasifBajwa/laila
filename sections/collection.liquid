@@ -2,7 +2,7 @@
   <div class="gallery_Collection">
     {% for collection in collections %}
       <div class="item">
-        <img src="{{ collection.image | image_url: width: 600 }}" alt="{{ collection.title }}" />
+        <img src="{{ collection.image | image_url: width: 100 }}" alt="{{ collection.title }}" />
         <div class="caption">{{ collection.title | upcase }}</div>
       </div>
     {% endfor %}
@@ -23,8 +23,8 @@
       const dist = Math.sqrt(dx * dx + dy * dy);
   
       const force = Math.min(15, 100 / dist);
-      const moveX = -dx * force * 0.05;
-      const moveY = -dy * force * 0.05;
+      const moveX = -dx * force * 0.5;
+      const moveY = -dy * force * 0.5;
   
       img.style.transform = `translate(${moveX}px, ${moveY}px)`;
     });
