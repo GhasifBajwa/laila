@@ -1,9 +1,26 @@
 <style>
+  .gallery_Collection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 60px;
+    text-align: center;
+  }
+
   .item img {
     object-fit: cover;
     border: 1px solid #ccc;
+    transition: transform 0.2s ease;
+  }
+
+  .caption {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: sans-serif;
+    line-height: 30px;
   }
 </style>
+
 <section>
   <div class="gallery_Collection">
     {% for collection in collections %}
