@@ -1,15 +1,35 @@
-{% schema %}
-  {
-    "name": "Jewelry Shop",
-    "settings": [],
-    "presets": [
-      {
-        "name": "Jewelry Shop"
-      }
-    ]
+<style>
+  .filter-container {
+    display: inline-block;
+    font-family: Arial
+    , sans-serif;
+    font-size: 14px;
+    position: relative;
   }
-{% endschema %}
 
+  .filter {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .filter-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    padding: 6px 8px;
+    font-family: inherit;
+    font-size: inherit;
+    background: white;
+    z-index: 100;
+  }
+
+  .filter-dropdown.visible {
+    display: block;
+  }
+</style>
 <section>
   <div class="Filter-nav">
     <ul class="Filter-nav-links">
@@ -29,10 +49,28 @@
         <a href="/collections/bracelets">BRACELETS</a>
       </li>
     </ul>
-    <div class="filter">
-      <img src="{{ 'icon_filter.png' | asset_url }}" alt="Filter" />
-      <span>FILTER</span>
+    <div class="filter-container">
+      <div class="filter" id="filterToggle">
+        <img src="{{ 'Filter.png' | asset_url }}" alt="Filter Icon" />
+        <span>FILTER</span>
+      </div>
+
+      <select
+        class="filter-dropdown"
+        id="filterDropdown"
+        aria-label="Filter options">
+        <option value="planting-seed">planting: seed</option>
+        <option value="planting-sprout">planting: sprout</option>
+        <option value="planting-root">planting: root</option>
+        <option value="pollinating-palms">pollinating palms</option>
+        <option value="oooh-la-ice">oooh la i´ice</option>
+        <option value="flora">flora</option>
+        <option value="gold">gold</option>
+        <option value="silver">silver</option>
+        <option value="diamonds">diamonds</option>
+      </select>
     </div>
+
   </div>
 </section>
 
@@ -100,3 +138,21 @@
     </div>
   </main>
 </section>
+<script>
+    const filterToggle = document.getElementById("filterToggle");
+    const filterDropdown = document.getElementById("filterDropdown");
+  
+    filterToggle.addEventListener("click", () => {
+      filterDropdown.classList.toggle("visible");
+    });
+  
+    // Optional: Close dropdown if clicking outside
+    document.addEventListener("click", (e) => {
+      if (
+        !filterToggle.contains(e.target) &&
+        !filterDropdown.contains(e.target)
+      ) {
+        filterDropdown.classList.remove("visible");
+      }
+    });
+</script>
