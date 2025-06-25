@@ -1,8 +1,11 @@
 <style>
+  @font-face {
+    font-family: "GT Cinetype Trial";
+    src: url("{{ 'GT-Cinetype-Regular.woff2' | asset_url }}") format("woff2");
+  }
   .filter-container {
     display: inline-block;
-    font-family: Arial
-    , sans-serif;
+    font-family: GT Cinetype Trial;
     font-size: 14px;
     position: relative;
   }
@@ -20,8 +23,9 @@
     top: 40px;
     right: 20px;
     padding: 6px 8px;
-    font-family: inherit;
-    font-size: inherit;
+    font-family: GT Cinetype Trial;
+    font-size: 14px;
+    font-weight: 900;
     background: white;
     z-index: 100;
   }
