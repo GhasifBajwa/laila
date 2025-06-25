@@ -15,7 +15,16 @@
       </div>
 
       <div class="nav-icons">
-        <img src="{{ 'blacksearch.png' | asset_url }}" alt="Search">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="SEARCH" />
+        <img
+          src="{{ 'search-icon.png' | asset_url }}"
+          id="searchIcon"
+          style="cursor: pointer; width: 40px" />
+
         <img src="{{ 'blackuser.png' | asset_url }}" alt="User">
         <img src="{{ 'blackheart.png' | asset_url }}" alt="Wishlist">
         <img
@@ -79,3 +88,29 @@
     </nav>
   </section>
 </header>
+<script>
+    const searchIcon = document.getElementById("searchIcon");
+    const searchInput = document.getElementById("searchInput");
+  
+    searchIcon.addEventListener("click", () => {
+      if (searchInput.style.display === "block") {
+        // Hide animation first
+        searchInput.classList.remove("visible");
+  
+        // After transition, hide with display none
+        searchInput.addEventListener("transitionend", function handler() {
+          searchInput.style.display = "none";
+          searchInput.removeEventListener("transitionend", handler);
+        });
+      } else {
+        // Show input and then trigger animation
+        searchInput.style.display = "block";
+  
+        // small delay to allow display:block to apply before animating
+        requestAnimationFrame(() => {
+          searchInput.classList.add("visible");
+          searchInput.focus();
+        });
+      }
+    });
+</script>
