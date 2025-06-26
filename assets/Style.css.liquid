@@ -27,8 +27,8 @@ body {
 
 nav {
   position: fixed;
-  width: 90vw;
-  height: 3.75rem;
+  width: 90%;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,28 +36,28 @@ nav {
 }
 
 .logo {
-  width: 6.4rem;
-  height: 2.85rem;
-  margin-left: 0.625rem;
-  margin-top: 0.625rem;
+  width: 102.23px;
+  height: 45.67px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .nav-center {
   display: flex;
-  gap: 2.5rem;
-  font-size: clamp(12px, 1vw, 16px);
+  gap: 40px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  transform: translateX(28vw);
+  transform: translateX(450px);
 }
 
 .nav-center a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
-  font-size: clamp(12px, 1vw, 16px);
+  font-size: 14px;
   font-family: GT Cinetype Trial;
-  line-height: 1.8rem;
+  line-height: 30px;
 }
 
 .nav-center a:hover {
@@ -66,21 +66,29 @@ nav {
 
 .nav-icons {
   display: flex;
-  gap: 1.5rem;
-  height: 1.16rem;
-  width: 1.2rem;
+  gap: 25px;
+  height: 18.57px;
+  width: 19.12px;
   color: #000;
   cursor: pointer;
 }
 
+.nav-scrolled-white a {
+  color: white !important;
+}
+
+.nav-scrolled-white .nav-icons img {
+  color: white !important;
+}
+
 .search-input {
   position: absolute;
-  top: 0.625rem;
-  right: 1.25rem;
-  width: 22.7rem;
-  height: 2.625rem;
-  padding: 0 0.9375rem;
-  font-size: 0.75rem;
+  top: 10px;
+  right: 20px;
+  width: 363px;
+  height: 42px;
+  padding: 0px 15px;
+  font-size: 12px;
   font-family: GT Cinetype Trial;
   font-weight: 900;
   background-color: #EDEDEF;
@@ -96,7 +104,24 @@ nav {
   transform: translateX(0);
 }
 
-/* Adjust hero image container */
+.hero-wrapper {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
 .img-container {
   width: 60vw;
   height: 60vh;
@@ -112,7 +137,6 @@ nav {
 }
 
 .hero-text {
-  font-family: GT Cinetype Trial;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -123,11 +147,12 @@ nav {
   align-items: center;
   z-index: 5;
   pointer-events: none;
+  font-family: GT Cinetype Trial;
 }
 
 .text-left,
 .text-right {
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: 3rem;
   font-weight: 800;
   color: white;
   opacity: 0;
@@ -137,12 +162,12 @@ nav {
 
 .text-left {
   transform: translateX(-100%);
-  margin-right: 1.25rem;
+  margin-right: 20px;
 }
 
 .text-right {
   transform: translateX(100%);
-  margin-left: 1.25rem;
+  margin-left: 20px;
 }
 
 .active .text-left {
@@ -154,7 +179,6 @@ nav {
   transform: translateX(0);
   opacity: 1;
 }
-
 
 .spacer {
   height: 100vh;
