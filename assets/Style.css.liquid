@@ -82,28 +82,27 @@ nav {
 }
 
 .search-input {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        width: 363px;
-        height: 42px;
-        padding: 0px 15px;
-        font-size: 12px;
-        font-family: GT Cinetype Trial;
-        font-weight: 900;
-        background-color: #EDEDEF;
-        border: 1px solid #EDEDEF !important;
-        /* box-sizing: border-box; */
-        display: none;
-        opacity: 0;
-        transform: translateX(100%);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-      }
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 363px;
+  height: 42px;
+  padding: 0px 15px;
+  font-size: 12px;
+  font-family: GT Cinetype Trial;
+  font-weight: 900;
+  background-color: #EDEDEF;
+  border: 1px solid #EDEDEF !important;
+  display: none;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
-      .search-input.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
+.search-input.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 .hero-wrapper {
   height: 100vh;
@@ -184,6 +183,142 @@ nav {
 .spacer {
   height: 100vh;
 }
+
+
+/* --------- Responsive Media Queries --------- */
+
+/* For screens <= 1366px (Common laptop size) */
+@media (max-width: 1366px) {
+  .nav-center {
+    gap: 30px;
+    font-size: 12px;
+    transform: translateX(350px);
+  }
+
+  .nav-center a {
+    font-size: 13px;
+  }
+
+  .search-input {
+    width: 280px;
+    height: 38px;
+    font-size: 11px;
+    right: 15px;
+    top: 8px;
+  }
+
+  .img-container {
+    width: 55vw;
+    height: 55vh;
+  }
+
+  .text-left,
+  .text-right {
+    font-size: 2.5rem;
+  }
+}
+
+/* For screens <= 1280px */
+@media (max-width: 1280px) {
+  .nav-center {
+    gap: 25px;
+    transform: translateX(300px);
+  }
+
+  .nav-center a {
+    font-size: 12px;
+  }
+
+  .search-input {
+    width: 250px;
+    height: 36px;
+    font-size: 11px;
+    right: 12px;
+    top: 7px;
+  }
+
+  .img-container {
+    width: 50vw;
+    height: 50vh;
+  }
+
+  .text-left,
+  .text-right {
+    font-size: 2.2rem;
+  }
+}
+
+/* For screens <= 1024px (Small laptops, large tablets) */
+@media (max-width: 1024px) {
+  nav {
+    width: 95%;
+  }
+
+  .nav-center {
+    gap: 20px;
+    font-size: 11px;
+    transform: translateX(200px);
+  }
+
+  .nav-center a {
+    font-size: 11px;
+  }
+
+  .search-input {
+    width: 220px;
+    height: 34px;
+    font-size: 10px;
+    right: 10px;
+    top: 6px;
+  }
+
+  .img-container {
+    width: 45vw;
+    height: 45vh;
+  }
+
+  .text-left,
+  .text-right {
+    font-size: 1.8rem;
+    margin: 0 10px;
+  }
+}
+
+/* For screens >= 1920px (Large desktops) */
+@media (min-width: 1920px) {
+  nav {
+    width: 80%;
+  }
+
+  .nav-center {
+    gap: 50px;
+    font-size: 15px;
+    transform: translateX(550px);
+  }
+
+  .nav-center a {
+    font-size: 16px;
+  }
+
+  .search-input {
+    width: 400px;
+    height: 44px;
+    font-size: 13px;
+    right: 25px;
+    top: 12px;
+  }
+
+  .img-container {
+    width: 65vw;
+    height: 65vh;
+  }
+
+  .text-left,
+  .text-right {
+    font-size: 3.5rem;
+  }
+}
+
 
 /* Updated Second Section Styles */
 .second-section {
