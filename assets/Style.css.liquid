@@ -321,34 +321,33 @@ nav {
 /* Updated Second Section Styles */
 .second-section {
   position: relative;
-  height: 200vh; /* Increased height to allow scrolling */
+  height: 200vh; /* keep scroll height */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 20px;
+  padding: 0 1.25rem; /* 20px */
 }
 
 .collection-header {
   position: sticky;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 10; /* changed from -500 to positive */
   text-align: center;
-  background: transparent; /* Optional: to ensure text readability */
-  padding: 20px;
-  z-index: -500;
+  background: transparent;
+  padding: 1.25rem; /* 20px */
 }
 
 .collection-label {
   text-align: start;
-  margin-left: -90px;
+  margin-left: -5vw; /* replaced -90px with relative */
   font-family: GT Cinetype Trial;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 16px);
   font-weight: 900;
   color: #333;
-  letter-spacing: -4%px;
-  margin-bottom: 10px;
+  letter-spacing: -0.04em; /* fix invalid letter-spacing */
+  margin-bottom: 0.625rem; /* 10px */
 }
 
 .heading1 img {
@@ -381,40 +380,112 @@ nav {
   align-items: center;
   justify-content: center;
   font-family: GT Cinetype Trial;
-  gap: 20px;
-  font-size: 14px;
-  letter-spacing: -4%;
-  line-height: 30px;
+  gap: 1.25rem; /* 20px */
+  font-size: clamp(12px, 1vw, 14px);
+  letter-spacing: -0.04em;
+  line-height: 1.8rem; /* ~30px */
   font-weight: 400;
   color: #333;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem; /* 40px */
 }
 
 .single-image-container {
   position: relative;
-  width: 40%;
+  width: 40vw;
   max-width: 800px;
-  height: 400px;
-  margin: 45vh;
+  height: 25vh;
+  max-height: 400px;
+  margin: 45vh auto; /* vertical margin with auto horizontal centering */
   z-index: 1;
 }
 
 .single-image-container img {
-  width: 600px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .collection-description {
+  max-width: 90vw;
   max-width: 600px;
-  margin: 20px auto 0;
-  font-size: 20px;
+  margin: 1.25rem auto 0;
+  font-size: clamp(16px, 1.5vw, 20px);
   font-weight: 500;
   color: #333;
   text-align: center;
-  line-height: 100%;
+  line-height: 1.2;
   z-index: 0;
   font-family: CenturySchoolbook;
+}
+
+/* ---------- Media Queries for common screen widths ---------- */
+
+/* <= 1366px */
+@media (max-width: 1366px) {
+  .collection-label {
+    margin-left: -4vw;
+    font-size: clamp(11px, 1.2vw, 14px);
+  }
+  .single-image-container {
+    width: 50vw;
+    height: 30vh;
+    max-height: 350px;
+    margin: 40vh auto;
+  }
+  .collection-description {
+    font-size: clamp(14px, 1.4vw, 18px);
+  }
+}
+
+/* <= 1280px */
+@media (max-width: 1280px) {
+  .collection-label {
+    margin-left: -3vw;
+    font-size: clamp(10px, 1.1vw, 14px);
+  }
+  .single-image-container {
+    width: 55vw;
+    height: 28vh;
+    max-height: 320px;
+    margin: 38vh auto;
+  }
+  .collection-description {
+    font-size: clamp(14px, 1.3vw, 17px);
+  }
+}
+
+/* <= 1024px */
+@media (max-width: 1024px) {
+  .collection-label {
+    margin-left: -2vw;
+    font-size: clamp(10px, 1vw, 13px);
+  }
+  .single-image-container {
+    width: 70vw;
+    height: 25vh;
+    max-height: 280px;
+    margin: 35vh auto;
+  }
+  .collection-description {
+    font-size: clamp(13px, 1.1vw, 16px);
+  }
+}
+
+/* >= 1920px */
+@media (min-width: 1920px) {
+  .collection-label {
+    margin-left: -6vw;
+    font-size: clamp(14px, 1vw, 18px);
+  }
+  .single-image-container {
+    width: 35vw;
+    height: 30vh;
+    max-height: 450px;
+    margin: 50vh auto;
+  }
+  .collection-description {
+    font-size: clamp(18px, 1.5vw, 22px);
+  }
 }
 .extarnal-section {
   position: relative;
