@@ -265,8 +265,15 @@ nav {
   }
 
   .img-container {
-    width: 45vw;
-    height: 45vh;
+    width: 80vw;   /* narrower width for smaller screens */
+    height: 45vh;  /* reduce height proportionally */
+  }
+
+  .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures the image covers container without distortion */
+    display: block;
   }
 
   .text-left,
