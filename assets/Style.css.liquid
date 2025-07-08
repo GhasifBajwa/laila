@@ -827,8 +827,13 @@ nav {
   line-height: 30px;
   letter-spacing: -4%;
 }
+@media (min-width: 400px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
   .gallery {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -838,7 +843,7 @@ nav {
   .gallery {
     grid-template-columns: repeat(4, 1fr);
   }
-} */
+}
 
 .gallery_Collection {
         display: grid;
