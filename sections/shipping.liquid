@@ -9,74 +9,97 @@
   }
 
   .container {
-    padding-top: 100px;
-    display: flex;
-    justify-content: center;
-    max-width: 1100px;
-    margin: auto;
-  }
+  padding-top: 6.25rem;
+  display: flex;
+  justify-content: center;
+  max-width: 68.75rem;
+  margin: auto;
+}
 
-  .content {
-    flex: 3;
-    text-align: center;
-  }
+.content {
+  flex: 3;
+  text-align: center;
+}
 
-  .content img {
-    width: 250px;
-    height: 25px;
-    margin-bottom: 60px;
-  }
+.content img {
+  width: 15.625rem; /* 250px / 16px = 15.625rem */
+  height: 1.5625rem; /* 25px / 16px = 1.5625rem */
+  margin-bottom: 3.75rem; /* 60px / 16px = 3.75rem */
+}
 
-  .section {
-    margin-bottom: 60px;
-  }
+.section {
+  margin-bottom: 3.75rem; /* 60px / 16px = 3.75rem */
+}
 
-  .section h2 {
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: -4%;
-    margin-bottom: 15px;
-    font-family: GT Cinetype Trial;
-  }
+.section h2 {
+  font-size: 0.875rem; /* 14px / 16px = 0.875rem */
+  font-weight: 900;
+  letter-spacing: -4%;
+  margin-bottom: 0.9375rem; /* 15px / 16px = 0.9375rem */
+  font-family: GT Cinetype Trial;
+}
 
-  .section p {
-    font-size: 20px;
-    line-height: 100%;
-    font-weight: 500;
-    max-width: 573px;
-    margin: 0 auto;
-    color: #161616;
-    font-family: CenturySchoolbook;
-  }
+.section p {
+  font-size: 1.25rem; /* 20px / 16px = 1.25rem */
+  line-height: 100%;
+  font-weight: 500;
+  max-width: 35.8125rem; /* 573px / 16px = 35.8125rem */
+  margin: 0 auto;
+  color: #161616;
+  font-family: CenturySchoolbook;
+}
 
+.sidebar {
+  flex: 1;
+  padding-left: 2.5rem; /* 40px / 16px = 2.5rem */
+}
+
+.sidebar ul {
+  list-style: none;
+  text-align: left;
+  font-size: 0.875rem; /* 14px / 16px = 0.875rem */
+  letter-spacing: -4%;
+  font-weight: 900;
+  font-family: GT Cinetype Trial;
+}
+
+.sidebar li {
+  margin-bottom: 1.25rem; /* 20px / 16px = 1.25rem */
+  color: #000;
+}
+
+.sidebar li:hover {
+  color: #d9d9d9;
+  cursor: pointer;
+}
+.p1 {
+  width: 27rem !important; /* 432px / 16px = 27rem */
+}
+.active {
+  color: #d9d9d9 !important;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
   .sidebar {
-    flex: 1;
-    padding-left: 40px;
+    padding-left: 0;
+    margin-top: 2rem;
   }
+}
 
-  .sidebar ul {
-    list-style: none;
-    text-align: left;
-    font-size: 14px;
-    letter-spacing: -4%;
-    font-weight: 900;
-    font-family: GT Cinetype Trial;
+@media (max-width: 576px) {
+  .content img {
+    width: 12.5rem; /* Reduced image size for smaller screens */
+    height: 1.25rem;
   }
-
-  .sidebar li {
-    margin-bottom: 20px;
-    color: #000;
+  .section p {
+    max-width: 90%;
   }
-  .sidebar li:hover {
-    color: #d9d9d9;
-    cursor: pointer;
-  }
-  .p1 {
-    width: 432px !important;
-  }
-  .active {
-    color: #d9d9d9 !important;
-  }
+}
 </style>
 
 <!-- sections/shipping-delivery.liquid -->
