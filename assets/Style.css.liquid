@@ -810,34 +810,30 @@ nav {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
-  gap: 0.3125rem;
-  padding: 0.9375rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); /* Default: Flexible columns */
+    gap: 0.3125rem;
+    padding: 0.9375rem;
 }
 
-/* Tablet */
-@media only screen and (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  }
+/* Tablet (adjust if needed) */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); /* Slightly smaller min-width */
+    }
 }
 
-/* Mobile – force exactly 2 columns */
-@media only screen and (max-width: 480px) {
-  /* bump specificity so it can’t be overridden */
-  section#shopify-section-shop .gallery {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
+/* Mobile (force 2 columns) */
+@media (max-width: 480px) {
+    body { background: red !important; }
 }
 
-/* Large desktop (optional) */
-@media only screen and (min-width: 1200px) {
-  .gallery {
-    grid-template-columns: repeat(4, 1fr);
-  }
+/* Desktop (optional) */
+@media (min-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
+    }
 }
-
 
 .gallery_Collection {
         display: grid;
