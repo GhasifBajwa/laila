@@ -51,6 +51,9 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
+.filter-dropdown.show {
+    display: block;
+}
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) { /* Example breakpoint */
@@ -115,14 +118,14 @@
       </li>
     </ul>
         <div class="filter-container">
-      <div class="filter" id="filterToggle">
+      <div class="filter" id="filter_Toggle">
         <img src="{{ 'icon_filter.png' | asset_url }}" alt="Filter Icon" />
         <span>FILTER</span>
       </div>
 
       <select
         class="filter-dropdown"
-        id="filterDropdown"
+        id="filter_Dropdown"
         aria-label="Filter options">
         <option value="planting-seed">planting: seed</option>
         <option value="planting-sprout">planting: sprout</option>
@@ -221,20 +224,20 @@
 </section>
 
 <script>
-    const filterToggle = document.getElementById("filterToggle");
-    const filterDropdown = document.getElementById("filterDropdown");
+    const filter_Toggle = document.getElementById("filter_Toggle");
+    const filter_Dropdown = document.getElementById("filter_Dropdown");
   
-    filterToggle.addEventListener("click", () => {
-      filterDropdown.classList.toggle("visible");
+    filter_Toggle.addEventListener("click", () => {
+      filter_Dropdown.classList.toggle("visible");
     });
   
     // Optional: Close dropdown if clicking outside
     document.addEventListener("click", (e) => {
       if (
-        !filterToggle.contains(e.target) &&
-        !filterDropdown.contains(e.target)
+        !filter_Toggle.contains(e.target) &&
+        !filter_Dropdown.contains(e.target)
       ) {
-        filterDropdown.classList.remove("visible");
+        filter_Dropdown.classList.remove("visible");
       }
     });
 </script>
