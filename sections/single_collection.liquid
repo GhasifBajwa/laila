@@ -13,14 +13,36 @@
     /* object-fit: cover; */
   }
   .collection_heading p {
-    width: 720px;
-    margin-top: 30px;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -4%;
-    font-family: CenturySchoolbook;
-    line-height: 20px;
+  max-width: 90%; /* Converted from 720px at base 16px: 720 / 16 = 45rem -> using % for responsiveness */
+  margin-top: 1.875rem; /* Converted from 30px */
+  font-size: 0.875rem; /* Converted from 14px */
+  font-weight: 500;
+  letter-spacing: -4%;
+  font-family: CenturySchoolbook, sans-serif; /* Added sans-serif as fallback */
+  line-height: 1.25rem; /* Converted from 20px */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) { /* Example breakpoint */
+    .collection_heading p {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+}
+
+@media (max-width: 480px) { /* Example breakpoint */
+    .collection_heading p {
+        font-size: 0.625rem;
+        line-height: 0.875rem;
+    }
+}
+
+/* Zoom level adjustments (optional - you can add more specific styles if needed) */
+@media screen and (min-resolution: 192dpi) { /* For 200% zoom and higher dpi screens */
+  .collection_heading p {
+      letter-spacing: -2%; /* Adjust letter spacing to compensate for zoom */
   }
+}
 </style>
 
 {% comment %} Static Shopify section for the SEED collection gallery and filter navigation {% endcomment %}
