@@ -813,7 +813,13 @@ nav {
   display: grid;
   gap: 0.3125rem; /* 5px */
   padding: 0.9375rem; /* 15px */
-  grid-template-columns: repeat(2, 1fr) !important; /* Mobile default */
+  grid-template-columns: repeat(2, 1fr); /* Mobile default */
+}
+
+@media (max-width: 500px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* Explicit mobile rule */
+  }
 }
 
 @media (min-width: 501px) {
@@ -827,6 +833,7 @@ nav {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 
 
 
