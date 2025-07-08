@@ -809,22 +809,29 @@ nav {
   letter-spacing: -4%;
 }
 
+/* Default (could be mobile or desktop depending on your approach) */
 .gallery {
-  display: grid;
-  gap: 0.3125rem;
-  padding: 0.9375rem;
-  grid-template-columns: repeat(2, 1fr); /* Default: Mobile (≤500px) */
+  grid-template-columns: repeat(1, 1fr); /* Fallback - 1 column */
 }
 
-@media (min-width: 501px) and (max-width: 1199px) {
+/* Mobile */
+@media (max-width: 500px) {
   .gallery {
-    grid-template-columns: repeat(3, 1fr); /* Tablet */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
   }
 }
 
+/* Tablet */
+@media (min-width: 501px) and (max-width: 1199px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop */
 @media (min-width: 1200px) {
   .gallery {
-    grid-template-columns: repeat(4, 1fr); /* Desktop */
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
