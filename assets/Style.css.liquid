@@ -826,8 +826,14 @@ nav {
 /* Mobile (force 2 columns) */
 @media (max-width: 480px) {
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)) !important; /* Fixed 2 columns */
+        grid-template-columns: repeat(2, 1fr) !important; /* Fixed 2 columns */
     }
+  .product img {
+    max-width: 100%; /* Make image responsive */
+    height: auto;
+    aspect-ratio: 365 / 340; /* Maintain original aspect ratio */
+    object-fit: cover;
+}
 }
 
 /* Desktop (optional) */
