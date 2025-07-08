@@ -785,6 +785,12 @@ nav {
   object-fit: cover;
 }
 
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* default for mobile */
+    gap: 0.3125rem; /* 5px / 16px = 0.3125rem */
+    padding: 0.9375rem; /* 15px / 16px = 0.9375rem */
+}
 
 .product img {
     max-width: 100%; /* Make image responsive */
@@ -808,9 +814,6 @@ nav {
   font-family: GT Cinetype Trial;
   line-height: 30px;
   letter-spacing: -4%;
-}
-.gallery {
-  grid-template-columns: repeat(2, 1fr); /* default for mobile */
 }
 
 @media (min-width: 401px) {
