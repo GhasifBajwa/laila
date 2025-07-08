@@ -809,32 +809,27 @@ nav {
     object-fit: cover;
 }
 
+/* Default (Mobile: 2 columns) */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); /* Default: Flexible columns */
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.3125rem;
     padding: 0.9375rem;
 }
 
-/* Tablet (adjust if needed) */
-@media (max-width: 768px) {
+/* Tablet (768px+) */
+@media (min-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); /* Slightly smaller min-width */
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     }
 }
 
-/* Mobile (force 2 columns) */
-@media (max-width: 480px) {
-    body { background: red !important; }
-}
-
-/* Desktop (optional) */
+/* Desktop (1200px+) */
 @media (min-width: 1200px) {
     .gallery {
-        grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
+        grid-template-columns: repeat(4, 1fr);
     }
 }
-
 .gallery_Collection {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
