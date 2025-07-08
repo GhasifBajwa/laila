@@ -811,30 +811,22 @@ nav {
 
 .gallery {
   display: grid;
-  gap: 0.3125rem; /* 5px */
-  padding: 0.9375rem; /* 15px */
-  grid-template-columns: repeat(2, 1fr); /* Mobile default */
+  gap: 0.3125rem;
+  padding: 0.9375rem;
+  grid-template-columns: repeat(2, 1fr); /* Default: Mobile (≤500px) */
 }
 
-@media (max-width: 500px) {
+@media (min-width: 501px) and (max-width: 1199px) {
   .gallery {
-    grid-template-columns: repeat(2, 1fr); /* Explicit mobile rule */
-  }
-}
-
-@media (min-width: 501px) {
-  .gallery {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Tablet */
   }
 }
 
 @media (min-width: 1200px) {
   .gallery {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Desktop */
   }
 }
-
-
 
 
 .gallery_Collection {
