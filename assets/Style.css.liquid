@@ -786,16 +786,29 @@ nav {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 5px;
-  padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); /* 250px / 16px = 15.625rem */
+    gap: 0.3125rem; /* 5px / 16px = 0.3125rem */
+    padding: 0.9375rem; /* 15px / 16px = 0.9375rem */
 }
 
 .product img {
-  width: 365px;
-  height: 340px;
-  object-fit: cover;
+    max-width: 100%; /* Make image responsive */
+    height: auto;
+    aspect-ratio: 365 / 340; /* Maintain original aspect ratio */
+    object-fit: cover;
+}
+
+@media (max-width: 768px) { /* Example breakpoint */
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); /* Adjust minmax for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr; /* Stack items on smaller screens */
+    }
 }
 
 .name {
