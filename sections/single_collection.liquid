@@ -74,9 +74,26 @@
         <a href="#">BRACELETS</a>
       </li>
     </ul>
-    <div class="filter">
-      <img src="{{ 'icon_filter.png' | asset_url }}" alt="Filter Icon" />
-      <span>FILTER</span>
+        <div class="filter-container">
+      <div class="filter" id="filterToggle">
+        <img src="{{ 'icon_filter.png' | asset_url }}" alt="Filter Icon" />
+        <span>FILTER</span>
+      </div>
+
+      <select
+        class="filter-dropdown"
+        id="filterDropdown"
+        aria-label="Filter options">
+        <option value="planting-seed">planting: seed</option>
+        <option value="planting-sprout">planting: sprout</option>
+        <option value="planting-root">planting: root</option>
+        <option value="pollinating-palms">pollinating palms</option>
+        <option value="oooh-la-ice">oooh la i´ice</option>
+        <option value="flora">flora</option>
+        <option value="gold">gold</option>
+        <option value="silver">silver</option>
+        <option value="diamonds">diamonds</option>
+      </select>
     </div>
   </div>
 </section>
