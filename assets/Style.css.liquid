@@ -809,25 +809,31 @@ nav {
     object-fit: cover;
 }
 
-/* Default (Mobile: 2 columns) */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); /* Default: Flexible columns */
     gap: 0.3125rem;
     padding: 0.9375rem;
 }
 
-/* Tablet (768px+) */
-@media (min-width: 768px) {
+/* Tablet (adjust if needed) */
+@media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); /* Slightly smaller min-width */
     }
 }
 
-/* Desktop (1200px+) */
+/* Mobile (force 2 columns) */
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr) !important; /* Fixed 2 columns */
+    }
+}
+
+/* Desktop (optional) */
 @media (min-width: 1200px) {
     .gallery {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
     }
 }
 .gallery_Collection {
