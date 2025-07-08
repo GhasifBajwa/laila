@@ -824,10 +824,15 @@ nav {
 
 @media (max-width: 480px) {
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr)); /* Stack items on smaller screens */
+        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr)) !important; /* Stack items on smaller screens */
     }
 }
 
+@media (min-width: 1200px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
 .gallery_Collection {
         display: grid;
