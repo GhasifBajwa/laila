@@ -179,3 +179,22 @@
     </div>
   </main>
 </section>
+
+<script>
+    const filterToggle = document.getElementById("filterToggle");
+    const filterDropdown = document.getElementById("filterDropdown");
+  
+    filterToggle.addEventListener("click", () => {
+      filterDropdown.classList.toggle("visible");
+    });
+  
+    // Optional: Close dropdown if clicking outside
+    document.addEventListener("click", (e) => {
+      if (
+        !filterToggle.contains(e.target) &&
+        !filterDropdown.contains(e.target)
+      ) {
+        filterDropdown.classList.remove("visible");
+      }
+    });
+</script>
