@@ -2,183 +2,293 @@
   @font-face {
     font-family: "GT Cinetype Trial";
     src: url("{{ 'GT-Cinetype-Regular.woff2' | asset_url }}") format("woff2");
+    font-display: swap;
   }
   @font-face {
     font-family: "CenturySchoolbook";
     src: url("{{ 'SCHLBKB.TTF' | asset_url }}") format("truetype");
+    font-display: swap;
+  }
+
+  /* Base styles for all devices */
+  .container, .container-mobile {
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: GT Cinetype Trial;
   }
 
   .container {
-    display: flex;
-    padding: 20px;
-    padding-top: 100px;
+    display: none;
+    padding: 1rem;
+    padding-top: 4rem;
   }
 
-  .left {
-    /* flex: 1; */
+  .container-mobile {
+    display: block;
+    padding: 1rem;
+  }
+
+  .mobile-view {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+  }
+
+  .left, .right {
+    width: 100%;
   }
 
   .left img {
-    /* width: 80%; */
-    /* max-width: 400px; */
-    width: 708px;
-    height: 850px;
+    width: 95%;
+    height: auto;
+    aspect-ratio: 708/850;
     object-fit: cover;
   }
 
-  .right {
-    flex: 1;
-    padding: 20px;
-    max-width: 500px !important;
+  .close {
+    color: red;
+    font-size: 0.8rem;
+    text-decoration: none;
+    display: block;
+    text-align: right;
+    margin-bottom: 1rem;
   }
 
-  .right h1 {
-    font-size: 12px;
-    letter-spacing: 1px;
-    font-weight: normal;
-    font-family: GT Cinetype Trial;
+  .meta, h1.meta {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin: 0.5rem 0;
   }
 
-  .right .meta {
-    margin: 10px 0;
-    font-size: 14px;
+  .meta {
     font-weight: 900;
-    letter-spacing: -4%;
-    font-family: GT Cinetype Trial;
-  }
-  .right hr {
-    width: 215px;
-    margin: 10px 0;
   }
 
-  .right .price {
-    font-size: 14px;
+  hr {
+    width: 100%;
+    max-width: 215px;
+    margin: 0.5rem 0;
+    border: none;
+    border-top: 1px solid #000;
+  }
+
+  .price {
+    font-size: 0.875rem;
     font-weight: 900;
-    margin: 15px 0;
-    font-family: GT Cinetype Trial;
+    margin: 1rem 0;
   }
 
   .add-to-bag {
     background-color: #e34230;
     color: white;
-    width: 322px;
+    width: 100%;
     height: 42px;
     border: none;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 900;
+    margin: 1rem 0;
     cursor: pointer;
-    margin: 15px 0;
-    font-family: GT Cinetype Trial;
   }
 
   .free-shipping {
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
     font-weight: 900;
-    letter-spacing: -4%;
-    font-family: GT Cinetype Trial;
   }
 
   .description img {
-    height: 25px;
-    width: 209px;
+    width: 100%;
+    max-width: 209px;
+    height: auto;
+    margin-bottom: 1rem;
   }
 
   .description p {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 377px;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 100%;
     font-family: CenturySchoolbook;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 1rem 0;
   }
 
   .description span {
     display: block;
-    margin-bottom: 20px;
-    color: #8f8f8f;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 900;
-    font-family: GT Cinetype Trial;
-    /* line-height: 3px; */
+    color: #8f8f8f;
+    margin-bottom: 0.5rem;
   }
 
   .thumbnail-label {
-    margin-top: 20px;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 900;
-    letter-spacing: -4%;
-    font-family: GT Cinetype Trial;
+    margin-top: 1.5rem;
   }
 
   .thumbnails {
     display: flex;
-    margin-top: 20px;
-    gap: 5px;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
   }
 
   .thumbnails img {
     width: 102px;
     height: 122px;
+    object-fit: cover;
     border: 1px solid #ccc;
+    cursor: pointer;
   }
 
-  .close {
-    color: red;
-    font-size: 10px;
-    float: right;
-    text-decoration: none;
+  /* Tablet and desktop styles */
+  @media (min-width: 768px) {
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      padding-top: 6rem;
+    }
+
+    .container-mobile {
+      display: none;
+    }
+
+    .left, .right {
+      width: 50%;
+    }
+
+    .thumbnails {
+      justify-content: flex-start;
+    }
+  }
+
+  /* Large desktop adjustments */
+  @media (min-width: 1200px) {
+    .container {
+      gap: 4rem;
+    }
   }
 </style>
 
+<!-- Desktop/Tablet Layout -->
 <div class="container">
-  <!-- LEFT SECTION -->
   <div class="left">
-    <img src="{{ 'G1.png' | asset_url }}" alt="Droplet Earrings" />
+    <img 
+      id="mainProductImage"
+      src="{{ product.featured_image | img_url: '708x850', crop: 'center' }}" 
+      alt="{{ product.featured_image.alt | escape }}" 
+    />
   </div>
-
-  <!-- RIGHT SECTION -->
   <div class="right">
-    <a class="close" href="#">X CLOSE</a>
-    <h1 class="meta">DROPLET-EARRINGS-11</h1>
+    <a class="close" href="{{ routes.collections_url }}">X CLOSE</a>
+    <h1 class="meta">{{ product.title | upcase }}</h1>
     <hr/>
-    <div class="meta">SILVER, DIAMONDS</div>
-    <hr/>
-    <div class="meta">MEDIUM</div>
-    <hr/>
-    <div class="price">€550</div>
-    <button class="add-to-bag">ADD TO BAG</button>
+    {% if product.vendor != blank %}
+      <div class="meta">{{ product.vendor | upcase }}</div>
+      <hr/>
+    {% endif %}
+    {% if product.type != blank %}
+      <div class="meta">{{ product.type | upcase }}</div>
+      <hr/>
+    {% endif %}
+    <div class="price">{{ product.price | money_without_trailing_zeros }}</div>
+    <form class="add-to-cart-form" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
+  <button type="submit" class="add-to-bag">ADD TO BAG</button>
+</form>
     <div class="free-shipping">FREE SHIPPING IN EU</div>
-
     <div class="description">
       <img src="{{ 'DESCRIPTION.png' | asset_url }}" alt="Description" />
-      <p>
-        The Pollinating Palms collection pays tribute to nature’s silent
- 
- 
-        architects—the palms and their hidden symphony of life. Each piece
-        reflects the delicate dance of pollination, where subtle connections
-        spark transformation.
-      </p>
-
-      <span>STERLING SILVER, DIAMONDS</span><br/>
-      <span>NICKLE FREE</span><br/>
-      <span>HIGH POLISHED FINISH</span><br/>
-      <span>MEASUREMENTS: 40 MM X 40 MM</span><br/>
-      <span>ETHICALLY HANDMADE IN AMSTERDAM</span>
+      <p>{{ product.description }}</p>
+      {% for tag in product.tags %}
+        {% if tag contains 'MATERIAL:' or tag contains 'FINISH:' or tag contains 'MEASUREMENTS:' or tag contains 'MADE IN:' %}
+          <span>{{ tag | split: ':' | last | strip | upcase }}</span>
+        {% endif %}
+      {% endfor %}
     </div>
-
-    <div class="thumbnail-div">
-      <div class="thumbnail-label">OTHER DROPLET EARRINGS</div>
-      <div class="thumbnails">
-        <img src="{{ 'G1.png' | asset_url }}" alt="Thumbnail 1" />
-        <img src="{{ 'G1.png' | asset_url }}" alt="Thumbnail 2" />
-        <img src="{{ 'G1.png' | asset_url }}" alt="Thumbnail 3" />
+    {% if product.collections.size > 0 %}
+      <div class="thumbnail-div">
+        <div class="thumbnail-label">OTHER {{ product.collections.first.title | upcase }}</div>
+        <div class="thumbnails">
+          {% for product in product.collections.first.products limit: 3 %}
+            {% unless product.handle == current_product.handle %}
+              <img 
+                src="{{ product.featured_image | img_url: '102x122', crop: 'center' }}" 
+                alt="{{ product.title | escape }}"
+                onclick="window.location.href='{{ product.url }}'"
+              />
+            {% endunless %}
+          {% endfor %}
+        </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 </div>
+
+<!-- Mobile Layout -->
+<div class="container-mobile">
+  <div class="mobile-view">
+    <div class="left">
+      <img 
+        id="mainProductImageMobile"
+        src="{{ product.featured_image | img_url: '708x850', crop: 'center' }}" 
+        alt="{{ product.featured_image.alt | escape }}" 
+      />
+    </div>
+    <div class="right">
+      <a class="close" href="{{ routes.collections_url }}">X CLOSE</a>
+      <h1 class="meta">{{ product.title | upcase }}</h1>
+      <hr/>
+      {% if product.vendor != blank %}
+        <div class="meta">{{ product.vendor | upcase }}</div>
+        <hr/>
+      {% endif %}
+      {% if product.type != blank %}
+        <div class="meta">{{ product.type | upcase }}</div>
+        <hr/>
+      {% endif %}
+      <div class="price">{{ product.price | money_without_trailing_zeros }}</div>
+     <form class="add-to-cart-form" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
+  <button type="submit" class="add-to-bag">ADD TO BAG</button>
+</form>
+      <div class="free-shipping">FREE SHIPPING IN EU</div>
+    </div>
+  </div>
+  <div class="description">
+    <img src="{{ 'DESCRIPTION.png' | asset_url }}" alt="Description" />
+    <p>{{ product.description }}</p>
+    {% for tag in product.tags %}
+      {% if tag contains 'MATERIAL:' or tag contains 'FINISH:' or tag contains 'MEASUREMENTS:' or tag contains 'MADE IN:' %}
+        <span>{{ tag | split: ':' | last | strip | upcase }}</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% if product.collections.size > 0 %}
+    <div class="thumbnail-div">
+      <div class="thumbnail-label">OTHER {{ product.collections.first.title | upcase }}</div>
+      <div class="thumbnails">
+        {% for product in product.collections.first.products limit: 3 %}
+          {% unless product.handle == current_product.handle %}
+            <img 
+              src="{{ product.featured_image | img_url: '102x122', crop: 'center' }}" 
+              alt="{{ product.title | escape }}"
+              onclick="window.location.href='{{ product.url }}'"
+            />
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  // Sync both product images if needed
+  document.querySelectorAll('.thumbnails img').forEach(thumb => {
+    thumb.addEventListener('click', function() {
+      const newSrc = this.src.replace('_102x122', '_708x850');
+      document.getElementById('mainProductImage').src = newSrc;
+      document.getElementById('mainProductImageMobile').src = newSrc;
+    });
+  });
+</script>
